@@ -8,5 +8,7 @@
     "types": ["node", "jest"],
 
     // other package-specific, test-specific options
+    // this is necessary in order to be able to handle the jsPolyfills `originals.js` which is used for testing
+    "allowJs": true
   }
 }

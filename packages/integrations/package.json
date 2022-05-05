@@ -21,9 +21,6 @@
     "localforage": "^1.8.1",
     "tslib": "^1.9.3"
   },
-  "devDependencies": {
-    "chai": "^4.1.2"
-  },
   "scripts": {
     "build": "run-p build:cjs build:esm build:types build:bundle",
     "build:bundle": "bash scripts/buildBundles.sh",

@@ -39,6 +39,13 @@ export function makeExtractPolyfillsPlugin() {
     // will have been injected
     renderChunk(code, chunk) {
       const sourceFile = chunk.fileName;
+
+      // We don't want to pull the function definitions out of their actual sourcefiles, just the places where they've
+      // been injected
+      if (sourceFile.includes('jsPolyfills')) {
+        return null;
+      }
+
       const parserOptions = {
         sourceFileName: sourceFile,
         // We supply a custom parser which wraps the provided `acorn` parser in order to override the `ecmaVersion` value.

@@ -1,7 +1,13 @@
 // adapted from Sucrase (https://github.com/alangpierce/sucrase)
 
-export function _optionalChain(ops) {
-  let lastAccessLHS = undefined;
+/**
+ *
+ *
+ * @param ops
+ * @returns
+ */
+export function _optionalChain(ops: any[]): any {
+  let lastAccessLHS: any = undefined;
   let value = ops[0];
   let i = 1;
   while (i < ops.length) {
@@ -17,7 +23,9 @@ export function _optionalChain(ops) {
       lastAccessLHS = value;
       value = fn(value);
     } else if (op in ['call', 'optionalCall']) {
-      value = fn((...args) => value.call(lastAccessLHS, ...args));
+      // TODO !!!!!!!!
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      value = fn((...args: unknown[]) => value.call(lastAccessLHS, ...args));
       lastAccessLHS = undefined;
     }
   }

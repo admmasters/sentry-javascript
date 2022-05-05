@@ -20,5 +20,5 @@
 ## General
 
 Common utilities used by the Sentry JavaScript SDKs. **Warning, only submodule imports are allowed here.** Also note,
-this function shouldn't be used externally, we will break them from time to time. This package is not part of our public
-API contract, we use them only internally.
+these functions shouldn't be used externally, as we may break them from time to time. This package is only meant to be used internally, and as such is not part of our public
+API contract and does not follow semver.
