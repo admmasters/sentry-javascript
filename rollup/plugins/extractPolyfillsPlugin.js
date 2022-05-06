@@ -11,6 +11,7 @@ const POLYFILL_NAMES = new Set([
   '_createStarExport',
   '_interopDefault', // rollup's version
   '_interopNamespace', // rollup's version
+  '_interopNamespaceDefaultOnly',
   '_interopRequireDefault', // sucrase's version
   '_interopRequireWildcard', // sucrase's version
   '_nullishCoalesce',
@@ -42,7 +43,7 @@ export function makeExtractPolyfillsPlugin() {
 
       // We don't want to pull the function definitions out of their actual sourcefiles, just the places where they've
       // been injected
-      if (sourceFile.includes('jsPolyfills')) {
+      if (sourceFile.includes('buildPolyfills')) {
         return null;
       }
 
@@ -194,8 +195,8 @@ function createImportOrRequireNode(polyfillNodes, currentSourceFile, moduleForma
   const isUtilsPackage = process.cwd().endsWith('packages/utils');
   const importSource = literal(
     isUtilsPackage
-      ? path.relative(path.dirname(currentSourceFile), `../jsPolyfills/${moduleFormat}`)
-      : `@sentry/utils/jsPolyfills/${moduleFormat}`,
+      ? `./${path.relative(path.dirname(currentSourceFile), 'buildPolyfills')}`
+      : `@sentry/utils/${moduleFormat}/buildPolyfills`,
   );
 
   // This is the `x, y, z` of inside of `import { x, y, z }` or `var { x, y, z }`

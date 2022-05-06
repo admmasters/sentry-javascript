@@ -1,4 +1,4 @@
-// Originals of the jsPolyfills from Sucrase and Rollup we use (which we have adapted in various ways), preserved here for testing, to prove that
+// Originals of the buildPolyfills from Sucrase and Rollup we use (which we have adapted in various ways), preserved here for testing, to prove that
 // the modified versions do the same thing the originals do.
 
 // From Sucrase

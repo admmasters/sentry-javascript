@@ -1,6 +1,7 @@
 import { RequireResult } from './types';
+
 /**
- * Adds a `default` property to CJS modules which aren't the result of transpilation from ESM modules.
+ * Adds a self-referential `default` property to CJS modules which aren't the result of transpilation from ESM modules.
  *
  * Adapted from Rollup (https://github.com/rollup/rollup)
  *
